@@ -36,3 +36,26 @@ console.log(restaurant.get(arr));
 usando .set(document.querySelector('h1'),'Heading'); por exemplo.
 o resultado disso será um objeto com o key = h1 e o value = heading */ 
 
+const questions = new Map([
+    ['question', 'Qual é a linguagem de programação mais famosa do mundo?'],
+    [1, 'C'],
+    [2, 'Java'],
+    [3, 'Javascript'],
+    ['correct', 3],
+    [true, 'correct'],
+    [false, 'try again'],
+]);
+
+console.log(questions.get('question'));
+for(const [key, value] of questions) {
+    if(typeof key === 'number') console.log(`Resposta ${key} : ${value}`);
+}
+
+const answer = 3;
+console.log(questions.get(questions.get('correct') === answer));
+
+//converter map para array 
+console.log([...questions]) // vai virar um array of arrays 
+console.log([...questions.entries()]);
+console.log([...questions.keys()]);
+console.log([...questions.values()]);
