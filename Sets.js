@@ -33,3 +33,31 @@ console.log(staffUnique1);
 console.log(new Set(staff).size); //contar quantos valores unicos possuem em um array usando os sets 
 console.log(new Set('Jonas').size); //contar quantas letras possui uma string usando sets 
 
+/*------No ES2025 Sets ganhou mais 7 novos métodos que os tornaram mais utéis se forem implementados com arrays-------*/
+
+const italianFoods = new Set(['Pasta','Gnocchi','tomatoes','olive oil','garlic','basil']);
+const mexicanFoods = new Set(['tortillas','beans','rice','tomatoes','avocado','garlic']);
+
+const commonFoods = italianFoods.intersection(mexicanFoods); //valores em comum, ordem nao importa
+console.log('Intersection Foods:', commonFoods);
+console.log([...commonFoods]);//pode ser usado para criar um array também 
+
+const fusion = italianFoods.union(mexicanFoods)//unir os dois sets 
+console.log(fusion);
+
+console.log(...new Set([...italianFoods, ...mexicanFoods]));
+
+
+const uniqueItalianFoods = italianFoods.difference(mexicanFoods);
+console.log(uniqueItalianFoods); //todos os valores de italianFoods que não aparecem no MexicanFoods 
+
+const uniqueMexicanFoods = mexicanFoods.difference(italianFoods);
+console.log(uniqueMexicanFoods);
+
+const uniqueItalianAndMexicanFoods = italianFoods.symmetricDifference(mexicanFoods); //valores de italian foods que não aparece no outros + valores de mexican foods que não aparecem no outro
+console.log(uniqueItalianAndMexicanFoods);
+
+/* Os outros três métodos restantes são para verificar se um Set está presente dentro de outro, 
+sendo eles o issubsetof, issupersetof e isthisjointfrom*/
+
+console.log(italianFoods.isDisjointFrom(mexicanFoods));// é false porque possuem elementos em comum 
