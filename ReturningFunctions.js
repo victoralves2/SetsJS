@@ -1,3 +1,5 @@
+'use strict';
+
 const greet = (greeting) => {
     return (name) => {
         console.log(`${greeting} ${name}`);
@@ -41,3 +43,9 @@ console.log(swiss);
 
 book.call(lufthansa, ...arr);
 console.log(lufthansa);
+
+//bind metghod
+
+const bookSW = book.bind(swiss); //returns another function
+
+
